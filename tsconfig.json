@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-config-driven/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@ng-config-driven/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@ng-config-driven/dashboards": ["libs/dashboards/src/index.ts"],
+      "@ng-config-driven/widget-gallery": ["libs/widget-gallery/src/index.ts"],
+      "@ng-config-driven/ui-shared": ["libs/ui-shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

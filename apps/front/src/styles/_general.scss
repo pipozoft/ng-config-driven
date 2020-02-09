@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--app-text-color);
+    font-family: 'Roboto Mono', sans-serif;
+    background: var(--app-background);
+    font-weight: 100;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}

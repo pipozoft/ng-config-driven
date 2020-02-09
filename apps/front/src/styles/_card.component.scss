@@ -1,0 +1,16 @@
+.card {
+    border-radius: var(--default-border-radius);
+    background: var(--card-component-background);
+    box-shadow: var(--card-component-box-shadow);
+    margin-bottom: 1rem;
+    
+    .card-header {
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+        font-weight: 500;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}

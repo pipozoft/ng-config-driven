@@ -23,6 +23,15 @@
     },
     "api-interfaces": {
       "tags": []
+    },
+    "dashboards": {
+      "tags": ["ui", "feature"]
+    },
+    "widget-gallery": {
+      "tags": ["ui"]
+    },
+    "ui-shared": {
+      "tags": ["ui"]
     }
   }
 }
