@@ -15,4 +15,8 @@ export class DashboardsService {
   async findAll(): Promise<Dashboard[]> {
     return this.dashboardModel.find().exec();
   }
+
+  async find(id): Promise<Dashboard>{
+    return await this.dashboardModel.findOne({_id: id});
+  }
 }

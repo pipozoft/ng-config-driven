@@ -1,4 +1,4 @@
-<h1>{{config$.title}}</h1>
+<h1>{{(config$ | async)?.title}}</h1>
 
 <button (click)="uiHelper.toggleDarkMode()">
     <svg class="icon" viewBox="0 0 24 24">
@@ -8,6 +8,6 @@
 
 
 <ng-config-driven-base-widget 
-    *ngFor="let widget of config$?.widgets;"
+    *ngFor="let widget of (config$ | async)?.widgets"
     [config]="widget">
 </ng-config-driven-base-widget>

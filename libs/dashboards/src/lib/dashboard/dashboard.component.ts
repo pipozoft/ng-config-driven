@@ -6,6 +6,10 @@ import {
   Renderer2
 } from '@angular/core';
 import { UIHelperService } from '@ng-config-driven/ui-shared';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Dashboard } from '@ng-config-driven/api-interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ng-config-driven-dashboard',
@@ -14,27 +18,18 @@ import { UIHelperService } from '@ng-config-driven/ui-shared';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit, AfterContentInit {
-  config$ = {
-    title: 'Dashboard Sample',
-    widgets: [{
-      id: 1,
-      title: 'Widget 1',
-      data: {
-        chartOptions: {},
-        value: {}
-      }
-    },
-    {
-      id: 2,
-      title: 'Widget 2',
-      data: {
-        chartOptions: {},
-        value: {}
-      }
-    }]
-  }
-  constructor(public uiHelper: UIHelperService, private renderer: Renderer2) {
+  config$: Observable<Dashboard>;
+
+  constructor(
+    public uiHelper: UIHelperService,
+    private renderer: Renderer2,
+    private route: ActivatedRoute,
+    private http: HttpClient) {
     uiHelper.renderer = renderer;
+
+    this.route.params.subscribe(params => {
+      this.config$ = this.http.get<Dashboard>(`/api/dashboards/${params['id']}`);
+    });
   }
 
   ngOnInit(): void {}

@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BaseWidgetComponent } from './base-widget/base-widget.component';
 import { WidgetGalleryModule } from '@ng-config-driven/widget-gallery';
 import { UiSharedModule } from '@ng-config-driven/ui-shared';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   imports: [
@@ -12,9 +13,10 @@ import { UiSharedModule } from '@ng-config-driven/ui-shared';
     WidgetGalleryModule,
     UiSharedModule,
     RouterModule.forChild([
+      {path: '', pathMatch: 'full', component: ListComponent},
       {path: ':id', pathMatch: 'full', component: DashboardComponent}
     ])
   ],
-  declarations: [DashboardComponent, BaseWidgetComponent]
+  declarations: [DashboardComponent, BaseWidgetComponent, ListComponent]
 })
 export class DashboardsModule {}

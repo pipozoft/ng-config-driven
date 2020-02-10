@@ -1,3 +1,4 @@
-export interface Message {
-  message: string;
+export interface Dashboard {
+  title: string;
+  widgets: any[];
 }

@@ -1,0 +1,3 @@
+<a class="card" *ngFor="let dashboard of dashboards$ | async" [routerLink]="['/dashboards/', dashboard._id]" >
+    {{dashboard.title}}
+</a>

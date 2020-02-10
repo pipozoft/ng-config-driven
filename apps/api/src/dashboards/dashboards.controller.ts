@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { CreateDashboardDto } from './dto/create-dashboard.dto';
 import { DashboardsService } from './dashboards.service';
 import { Dashboard } from './interfaces/dashboard.interface';
@@ -15,5 +15,10 @@ export class DashboardsController {
   @Get()
   async findAll(): Promise<Dashboard[]> {
     return this.dashboardsService.findAll();
+  }
+
+  @Get(':id')
+  async getDashboard(@Param('id') id: String){
+      return await this.dashboardsService.find(id);
   }
 }

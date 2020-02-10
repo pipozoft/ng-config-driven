@@ -20,7 +20,7 @@ export class BaseWidgetComponent implements OnInit, OnChanges {
 
   ngOnChanges(change: SimpleChanges) {
     if (change.config.currentValue) {
-      const widget = new Widget(change.config.currentValue.data);
+      const widget = new Widget(change.config.currentValue.config);
 
       this.componentInjector = Injector.create({
         providers: [{ provide: Widget, deps: [], useValue: widget }],
