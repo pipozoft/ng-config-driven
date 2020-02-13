@@ -5,10 +5,11 @@
 }
 
 a {
-    padding: 0.5rem;
+    padding: 1rem;
     display: block;
     text-decoration: none;
     color: var(--app-text-color);
+    margin: 1rem;
 
     &:hover {
         color: var(--active-color);

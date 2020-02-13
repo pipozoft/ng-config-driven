@@ -2,19 +2,19 @@ body {
     --active-color: #02c7cc;
     --app-background: #ecf2f3;
     --card-component-background: #fff;
-    --default-border-radius: 0.125rem;
+    --default-border-radius: 0.3125rem;
     --border-color: #e1edef;
     --app-text-color: #3f403f;
-    --card-component-box-shadow: 0 10px 15px rgba(155, 209, 218, 0.15);
+    --card-component-box-shadow:  20px 20px 89px #e3e3e3, -20px -20px 89px #ffffff;;
     --preview-background: #0c0c0c;
 }
 
 .dark-mode {
     --app-background: #0c0c0c;
     --card-component-background: #181818;
-    --default-border-radius: 0.125rem;
+    --default-border-radius: 0.3125rem;
     --border-color: #000000;
     --app-text-color: #fff;
-    --card-component-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    --card-component-box-shadow: 20px 20px 47px #070707, -20px -20px 47px #111111;
     --preview-background: #fff;
 }
