@@ -12,11 +12,19 @@ export class ArtistsService {
     return createdDashboard.save();
   }
 
-  async findAll(): Promise<Artist[]> {
-    return this.artistModel.find().exec();
+  async findAll(query: object): Promise<Artist[]> {
+    return await this.artistModel.find(query).exec();
   }
 
   async find(id): Promise<Artist>{
     return await this.artistModel.findOne({_id: id});
+  }
+
+  async aggregate(query: any): Promise<any[]>{
+    return await this.artistModel.aggregate(query);
+  }
+
+  async distintNames(): Promise<any[]>{
+    return await this.artistModel.distinct('name');
   }
 }
