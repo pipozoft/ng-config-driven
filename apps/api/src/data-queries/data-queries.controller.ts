@@ -23,7 +23,7 @@ export class DataQueriesController {
   }
 
   @Post('/exec')
-  async exexDataQuery(@Body() query){
+  async execDataQuery(@Body() query){
       if (query && query.uri) {
         return await this.dataQueriesService.findAndExcecute(query.uri);
       }

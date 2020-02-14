@@ -21,4 +21,11 @@ export class DashboardsController {
   async getDashboard(@Param('id') id: String){
       return await this.dashboardsService.find(id);
   }
+
+  @Post('/uri')
+  async findByURI(@Body() query){
+      if (query && query.uri) {
+        return await this.dashboardsService.findByURI(query.uri);
+      }
+  }
 }

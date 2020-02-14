@@ -25,10 +25,10 @@ export class DashboardComponent implements OnInit, AfterContentInit {
     private renderer: Renderer2,
     private route: ActivatedRoute,
     private http: HttpClient) {
-    uiHelper.renderer = renderer;
+    uiHelper.renderer = this.renderer;
 
     this.route.params.subscribe(params => {
-      this.config$ = this.http.get<Dashboard>(`/api/dashboards/${params['id']}`);
+      this.config$ = this.http.post<Dashboard>(`/api/dashboards/uri`, { uri: params['uri'] });
     });
   }
 

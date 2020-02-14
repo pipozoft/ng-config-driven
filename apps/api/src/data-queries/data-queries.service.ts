@@ -28,7 +28,7 @@ export class DataQueriesService {
   async findAndExcecute(uri: string): Promise<any>{
     const dq = await this.dataQueryModel.findOne({uri});
     if (!dq) {
-      return `No data Query with URI: ${uri}`;
+      return {error: `Data Query with URI: ${uri} dos not exist!`};
     }
     const query = dq.query ? JSON.parse(dq.query) : {};
     return await this.artistsService.findAll(query);

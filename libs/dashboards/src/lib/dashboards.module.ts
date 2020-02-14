@@ -14,7 +14,7 @@ import { ListComponent } from './list/list.component';
     UiSharedModule,
     RouterModule.forChild([
       {path: '', pathMatch: 'full', component: ListComponent},
-      {path: ':id', pathMatch: 'full', component: DashboardComponent}
+      {path: ':uri', pathMatch: 'full', component: DashboardComponent}
     ])
   ],
   declarations: [DashboardComponent, BaseWidgetComponent, ListComponent]

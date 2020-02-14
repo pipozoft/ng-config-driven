@@ -9,6 +9,7 @@ export const WidgetSchema = new mongoose.Schema({
 }, { strict : false });
 
 export const DashboardSchema = new mongoose.Schema({
+  uri: String,
   title: String,
   widgets: [WidgetSchema],
 });

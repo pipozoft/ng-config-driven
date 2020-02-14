@@ -19,4 +19,8 @@ export class DashboardsService {
   async find(id): Promise<Dashboard>{
     return await this.dashboardModel.findOne({_id: id});
   }
+
+  async findByURI(uri): Promise<Dashboard>{
+    return await this.dashboardModel.findOne({uri});
+  }
 }
