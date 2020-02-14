@@ -12,7 +12,7 @@ export class ArtistsService {
     return createdDashboard.save();
   }
 
-  async findAll(query: object, sort = {}, limit: number | null): Promise<Artist[]> {
+  async findAll(query: object, sort = {}, limit = null): Promise<Artist[]> {
     return await this.artistModel.find(query).sort(sort).limit(limit).exec();
   }
 

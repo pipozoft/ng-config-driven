@@ -1,9 +1,5 @@
 import { Document } from 'mongoose';
-
-export interface Filter {
-  query: any;
-  sort: any;
-}
+import { Filter } from '@ng-config-driven/api-interfaces'
 
 export interface DataQuery extends Document {
   readonly uri: string;

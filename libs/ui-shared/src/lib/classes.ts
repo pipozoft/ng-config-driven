@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { WidgetConfig } from './interfaces';
 
 @Injectable()
 export class Widget {
+    queryUri: string;
     chartOptions: any;
     value: any;
 
-    constructor({chartOptions, value}) {
-        this.chartOptions = chartOptions;
-        this.value = value;
+    constructor({queryUri, chartOptions, value}) {
+        this.queryUri = queryUri || '';
+        this.chartOptions = chartOptions || null;
+        this.value = value || null;
     }
 }

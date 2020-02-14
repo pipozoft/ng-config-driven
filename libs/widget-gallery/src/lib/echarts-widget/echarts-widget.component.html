@@ -1,1 +1,10 @@
-<pre>{{config | json}}</pre>
+<div
+  echarts
+  [options]="config?.chartOptions"
+  [theme]="theme"
+  [merge]="updateOptions"
+  (chartClick)="onChartEvent($event)">
+</div>
+
+<!-- DEBUG MODE -->
+<pre *ngIf="!config?.chartOptions">{{config | json}}</pre>
