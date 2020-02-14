@@ -30,7 +30,9 @@ export class DataQueriesService {
     if (!dq) {
       return {error: `Data Query with URI: ${uri} dos not exist!`};
     }
-    const query = dq.query ? JSON.parse(dq.query) : {};
-    return await this.artistsService.findAll(query);
+    const query = dq.filter.query ? JSON.parse(dq.filter.query) : {};
+    const sort = dq.filter.sort || {};
+    const limit = dq.filter.limit || null;
+    return await this.artistsService.findAll(query, sort, limit);
   }
 }

@@ -1,5 +1,5 @@
 export class CreateDataQueryDto {
   readonly uri: string;
-  readonly query: string;
+  readonly filter: any;
   readonly type: string;
 }

@@ -12,8 +12,8 @@ export class ArtistsService {
     return createdDashboard.save();
   }
 
-  async findAll(query: object): Promise<Artist[]> {
-    return await this.artistModel.find(query).exec();
+  async findAll(query: object, sort = {}, limit: number | null): Promise<Artist[]> {
+    return await this.artistModel.find(query).sort(sort).limit(limit).exec();
   }
 
   async find(id): Promise<Artist>{
