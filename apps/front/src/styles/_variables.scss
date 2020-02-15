@@ -5,16 +5,16 @@ body {
     --default-border-radius: 0.3125rem;
     --border-color: #e1edef;
     --app-text-color: #3f403f;
-    --card-component-box-shadow:  20px 20px 89px #e3e3e3, -20px -20px 89px #ffffff;;
+    --card-component-box-shadow:  1rem 1rem 6rem #e3e3e3, -1rem -1rem 6rem #ffffff;;
     --preview-background: #0c0c0c;
 }
 
-.dark-mode {
+.dark-theme {
     --app-background: #0c0c0c;
-    --card-component-background: #181818;
+    --card-component-background: #333; //#181818
     --default-border-radius: 0.3125rem;
     --border-color: #000000;
     --app-text-color: #fff;
-    --card-component-box-shadow: 20px 20px 47px #070707, -20px -20px 47px #111111;
+    --card-component-box-shadow: 1rem 1rem 4rem #070707, -1rem -1rem 4rem #111111;
     --preview-background: #fff;
 }

@@ -3,8 +3,14 @@
   [options]="config?.chartOptions"
   [theme]="theme"
   [merge]="updateOptions"
-  (chartClick)="onChartEvent($event)">
+  (chartClick)="onChartEvent($event)"
+  (chartInit)="onChartInit($event)">
 </div>
+
+<button 
+  class="hidden"
+  #themeHelper 
+  (click)="setTheme(theme)"></button>
 
 <!-- DEBUG MODE -->
 <pre *ngIf="!config?.chartOptions">{{config | json}}</pre>

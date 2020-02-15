@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Injector, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
-import { WidgetRegistry, Widget } from '@ng-config-driven/ui-shared';
+import { WidgetRegistry, Widget, UIHelperService, WidgetConfig } from '@ng-config-driven/ui-shared';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -9,12 +9,14 @@ import { Observable, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseWidgetComponent implements OnInit, OnChanges {
-  @Input() config: any; //TODO: type
+  @Input() config: any;
 
   component: Observable<any>;
   componentInjector: Injector;
 
-  constructor(private injector: Injector) {}
+  constructor(
+    private injector: Injector
+  ) {}
 
   ngOnInit(): void {}
 

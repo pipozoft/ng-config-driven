@@ -1,5 +1,6 @@
 export interface Dashboard {
   _id: string;
+  uri: string;
   title: string;
   widgets: any[];
 }

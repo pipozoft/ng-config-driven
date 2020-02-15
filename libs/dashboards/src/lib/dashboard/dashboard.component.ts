@@ -21,19 +21,16 @@ export class DashboardComponent implements OnInit, AfterContentInit {
   config$: Observable<Dashboard>;
 
   constructor(
-    public uiHelper: UIHelperService,
-    private renderer: Renderer2,
     private route: ActivatedRoute,
-    private http: HttpClient) {
-    uiHelper.renderer = this.renderer;
-
+    private http: HttpClient
+  ) {
     this.route.params.subscribe(params => {
-      this.config$ = this.http.post<Dashboard>(`/api/dashboards/uri`, { uri: params['uri'] });
+      const uri = params['uri'];
+      this.config$ = this.http.post<Dashboard>(`/api/dashboards/uri`, { uri });
     });
   }
 
   ngOnInit(): void {}
 
-  ngAfterContentInit() {
-  }
+  ngAfterContentInit(): void {}
 }

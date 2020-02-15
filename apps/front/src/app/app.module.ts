@@ -5,13 +5,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import { UiSharedModule, UIHelperService } from '@ng-config-driven/ui-shared';
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    UiSharedModule.forRoot(),
     RouterModule.forRoot([
       {
         path: 'dashboards',

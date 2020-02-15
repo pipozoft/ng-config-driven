@@ -2,10 +2,12 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UIHelperService } from './services/helper.service'
 import { DataQueriesService } from './services/data-queries.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ]
 })
 export class UiSharedModule  {
@@ -13,8 +15,8 @@ export class UiSharedModule  {
     return {
       ngModule: UiSharedModule,
       providers: [
-        UIHelperService,
-        DataQueriesService
+        DataQueriesService,
+        UIHelperService
       ]
     };
   }

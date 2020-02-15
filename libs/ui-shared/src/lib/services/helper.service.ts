@@ -1,19 +1,19 @@
-import { Injectable, Renderer2, Inject } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
 
-const darkModeClass = 'dark-mode';
+const DARK_THEME_CLASS = 'dark-theme';
 
 @Injectable({
-    providedIn: 'any'
+    providedIn: 'root'
 })
 export class UIHelperService {
-    theme = 'dark';
-    renderer: Renderer2;
+    theme$ = new BehaviorSubject<string>('default');
 
     constructor(@Inject(DOCUMENT) private document: Document) {}
 
     toggleDarkMode() {
-        this.theme = this.theme === 'dark' ? 'light' : 'dark';
-        this.document.body.classList.toggle(darkModeClass);
+        this.theme$.getValue() === 'dark' ? this.theme$.next('default') : this.theme$.next('dark');
+        this.document.body.classList.toggle(DARK_THEME_CLASS);
     }
 }
