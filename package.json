@@ -44,6 +44,7 @@
     "@nrwl/angular": "9.0.0",
     "core-js": "^2.5.4",
     "echarts": "^4.6.0",
+    "lodash": "^4.17.15",
     "mongoose": "^5.8.11",
     "ngx-echarts": "^4.2.2",
     "reflect-metadata": "^0.1.13",

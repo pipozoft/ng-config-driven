@@ -9,7 +9,7 @@ import { Observable, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BaseWidgetComponent implements OnInit, OnChanges {
-  @Input() config: any;
+  @Input() widget: any;
 
   component: Observable<any>;
   componentInjector: Injector;
@@ -21,15 +21,15 @@ export class BaseWidgetComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(change: SimpleChanges) {
-    if (change.config.currentValue) {
-      const widget = new Widget(change.config.currentValue.config);
+    if (change.widget.currentValue) {
+      const widget = new Widget(change.widget.currentValue.config);
 
       this.componentInjector = Injector.create({
         providers: [{ provide: Widget, deps: [], useValue: widget }],
         parent: this.injector,
         name: ''
       });
-      this.component = of(WidgetRegistry.get(`EchartsWidget`));
+      this.component = of(WidgetRegistry.get(change.widget.currentValue.type));
     }
   }
 

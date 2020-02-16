@@ -13,4 +13,13 @@ export class DataQueriesService {
     exec(uri: string) {
         return this.http.post(`${API_URL}/exec`,{uri});
     }
+
+    createTransformationFunction(transformationFunction: string) {
+        return new Function(
+            'response', 'util',
+            transformationFunction ?
+            transformationFunction :
+            'return response;'
+        );
+    }
 }
