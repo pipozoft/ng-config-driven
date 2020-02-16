@@ -5,6 +5,7 @@ const ConfigSchema = new mongoose.Schema({}, { strict: false });
 export const WidgetSchema = new mongoose.Schema({
   title: String,
   type: String,
+  size: Number,
   config: ConfigSchema,
 }, { strict : false });
 

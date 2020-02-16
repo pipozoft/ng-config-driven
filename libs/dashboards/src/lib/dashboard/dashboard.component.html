@@ -1,8 +1,11 @@
 <div *ngIf="config$ | async as config">
   <h1>{{ config.title }}</h1>
 
-  <ng-config-driven-base-widget
-    *ngFor="let widget of config.widgets"
-    [widget]="widget">
-  </ng-config-driven-base-widget>
+  <div class="row">
+    <ng-config-driven-base-widget class="col-xs-12 col-md-{{widget.size}}"
+        *ngFor="let widget of config.widgets"
+        [widget]="widget">
+    </ng-config-driven-base-widget>
+  </div>
 </div>
+
