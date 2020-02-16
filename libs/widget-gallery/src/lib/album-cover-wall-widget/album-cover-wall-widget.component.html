@@ -1,0 +1,6 @@
+<div class="covers">
+    <img *ngFor="let item of data;"
+    [src]="item.imgageUrl"
+    alt="{{item.name}}"
+    loading="eager">
+</div>

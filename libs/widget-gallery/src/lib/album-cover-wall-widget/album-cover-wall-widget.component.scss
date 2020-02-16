@@ -1,0 +1,16 @@
+.covers {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(18, 1fr);
+}
+
+img {
+    width: 100%;
+    background-color: var(--angular-color);
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(2);
+        box-shadow: var(--card-component-box-shadow);
+    }
+}

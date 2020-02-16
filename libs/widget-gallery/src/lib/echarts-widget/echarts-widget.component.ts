@@ -19,7 +19,6 @@ export class EchartsWidgetComponent implements OnInit, AfterViewInit {
   theme: string;
   data: any[];
   eChartsInstance: ECharts;
-  @ViewChild('themeHelper') themeHelper: ElementRef;
 
   constructor(
     @Inject(Widget) public config: WidgetConfig,
@@ -39,9 +38,6 @@ export class EchartsWidgetComponent implements OnInit, AfterViewInit {
     .subscribe(theme => {
       this.theme = theme;
       this.cd.detectChanges();
-      // if (this.themeHelper) {
-      //   this.themeHelper.nativeElement.click();
-      // }
     });
   }
 
