@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject, ChangeDetectionStrategy, Renderer2, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Widget, WidgetConfig, RegisterWidget, DataQueriesService, UIHelperService } from '@ng-config-driven/ui-shared';
 import { ECharts } from 'echarts';
 import { map } from 'rxjs/operators';
 
 import './maps/world.js';
+import './maps/germany.js';
 
 import * as _ from 'lodash';
 
