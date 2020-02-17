@@ -31,7 +31,6 @@ export class AlbumCoverWallWidgetComponent implements OnInit, AfterViewInit {
       // Save raw data
       this.data = Object.assign([], reponse);
       this.cd.detectChanges();
-      console.log('data', this.data);
     });
   }
 }

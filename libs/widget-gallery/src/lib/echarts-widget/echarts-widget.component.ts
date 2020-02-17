@@ -48,7 +48,6 @@ export class EchartsWidgetComponent implements OnInit, AfterViewInit {
       map((reponse: any[]) => {
         // Save raw data
         this.data = Object.assign([], reponse);
-        console.log('data', this.data)
         // Return transformed data
         return this.dataQueriesService.createTransformationFunction(
           this.config.transformationFunction
@@ -59,7 +58,6 @@ export class EchartsWidgetComponent implements OnInit, AfterViewInit {
       // Update chart with transformed data
       this.updateOptions = Object.assign({}, data);
       this.cd.detectChanges();
-      console.log('updateOptions', this.updateOptions);
     });
   }
 
