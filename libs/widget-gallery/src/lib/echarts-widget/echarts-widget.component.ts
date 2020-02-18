@@ -1,12 +1,12 @@
-import { Component, OnInit, Inject, ChangeDetectionStrategy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Widget, WidgetConfig, RegisterWidget, DataQueriesService, UIHelperService } from '@ng-config-driven/ui-shared';
-import { ECharts } from 'echarts';
-import { map } from 'rxjs/operators';
+import { ECharts, EChartsOptionConfig } from 'echarts';
 
 import './maps/world.js';
 import './maps/germany.js';
 
 import * as _ from 'lodash';
+import { BaseWidgetComponent } from '../base-widget/base-widget.component.js';
 
 @RegisterWidget('EchartsWidget')
 @Component({
@@ -15,48 +15,29 @@ import * as _ from 'lodash';
   styleUrls: ['./echarts-widget.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EchartsWidgetComponent implements OnInit, AfterViewInit {
-  updateOptions: any;
+export class EchartsWidgetComponent extends BaseWidgetComponent implements AfterViewInit {
+  updateOptions: EChartsOptionConfig;
   theme: string;
-  data: any[];
   eChartsInstance: ECharts;
 
   constructor(
     @Inject(Widget) public config: WidgetConfig,
-    private dataQueriesService: DataQueriesService,
-    public uiHelper: UIHelperService,
-    private cd: ChangeDetectorRef
-  ) {}
-
-  ngOnInit(): void {
-    console.log(this.config);
+    protected dataQueriesService: DataQueriesService,
+    protected cd: ChangeDetectorRef,
+    private uiHelper: UIHelperService,
+  ) {
+    super(config, dataQueriesService, cd);
   }
 
   ngAfterViewInit(): void {
-    this.getData(this.config.queryUri);
+    this.getData(this.config.queryUri, data => {
+      // Update chart with transformed data
+      this.updateOptions = Object.assign({}, data);
+    });
 
     this.uiHelper.theme$
     .subscribe(theme => {
       this.theme = theme;
-      this.cd.detectChanges();
-    });
-  }
-
-  getData(uri: string): void {
-    this.dataQueriesService.exec(uri)
-    .pipe(
-      map((reponse: any[]) => {
-        // Save raw data
-        this.data = Object.assign([], reponse);
-        // Return transformed data
-        return this.dataQueriesService.createTransformationFunction(
-          this.config.transformationFunction
-        )(reponse, {_});
-      })
-    )
-    .subscribe(data => {
-      // Update chart with transformed data
-      this.updateOptions = Object.assign({}, data);
       this.cd.detectChanges();
     });
   }

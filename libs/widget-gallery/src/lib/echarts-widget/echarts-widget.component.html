@@ -7,10 +7,5 @@
   (chartInit)="onChartInit($event)">
 </div>
 
-<button 
-  class="hidden"
-  #themeHelper 
-  (click)="setTheme(theme)"></button>
-
 <!-- DEBUG MODE -->
-<pre *ngIf="!config?.chartOptions">{{config | json}}</pre>
+<pre style="padding: 1rem;" *ngIf="!config?.chartOptions">{{config | json}}</pre>
