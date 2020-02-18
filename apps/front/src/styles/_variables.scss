@@ -1,4 +1,6 @@
 body {
+    --default-font-family: 'Roboto Mono', sans-serif;
+    --default-font-size: 1rem;
     --active-color: #02c7cc;
     --app-background: #ecf2f3;
     --card-component-background: #fff;
@@ -7,15 +9,28 @@ body {
     --app-text-color: #3f403f;
     --card-component-box-shadow:  1rem 1rem 6rem #e3e3e3, -1rem -1rem 6rem #ffffff;;
     --preview-background: #0c0c0c;
-    --angular-color: #dd0031;
+    --alt-color: #dd0031;
+    --default-letter-spacing: 0;
 }
 
 .dark-theme {
     --app-background: #0c0c0c;
-    --card-component-background: #333; //#181818
+    --card-component-background: #333;
     --default-border-radius: 0.3125rem;
     --border-color: #000000;
     --app-text-color: #fff;
     --card-component-box-shadow: 1rem 1rem 4rem #070707, -1rem -1rem 4rem #111111;
     --preview-background: #fff;
 }
+
+// .viking-theme {
+//     --default-font-family: 'Myrkvior';
+//     --app-background: #e2e2d8;
+//     --app-text-color: #1d2323;
+//     --card-component-background: rgba(255, 255, 255, 0.5);
+//     --border-color: #ccccc5;
+//     --card-component-box-shadow: none;
+//     --alt-color: #5d9690;
+//     --default-letter-spacing: 3px;
+//     --default-font-size: 1.25rem;
+// }

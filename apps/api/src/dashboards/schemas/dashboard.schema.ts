@@ -12,5 +12,6 @@ export const WidgetSchema = new mongoose.Schema({
 export const DashboardSchema = new mongoose.Schema({
   uri: String,
   title: String,
+  theme: ConfigSchema,
   widgets: [WidgetSchema],
 });

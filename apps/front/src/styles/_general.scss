@@ -2,9 +2,10 @@ body {
     margin: 0;
     padding: 0;
     color: var(--app-text-color);
-    font-family: 'Roboto Mono', sans-serif;
+    font-family: var(--default-font-family);
     background: var(--app-background);
     font-weight: 100;
+    font-size: var(--default-font-size);
 }
 
 h1,

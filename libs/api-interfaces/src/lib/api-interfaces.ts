@@ -2,6 +2,7 @@ export interface Dashboard {
   _id: string;
   uri: string;
   title: string;
+  theme: any;
   widgets: any[];
 }
 
