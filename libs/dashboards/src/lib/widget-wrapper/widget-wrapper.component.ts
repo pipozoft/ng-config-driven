@@ -1,14 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy, Injector, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
-import { WidgetRegistry, Widget, UIHelperService, WidgetConfig } from '@ng-config-driven/ui-shared';
+import { Component, ChangeDetectionStrategy, Injector, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { WidgetRegistry, Widget } from '@ng-config-driven/ui-shared';
 import { Observable, of } from 'rxjs';
 
 @Component({
-  selector: 'ng-config-driven-base-widget',
-  templateUrl: './base-widget.component.html',
-  styleUrls: ['./base-widget.component.scss'],
+  selector: 'ng-config-driven-widget-wrapper',
+  templateUrl: './widget-wrapper.component.html',
+  styleUrls: ['./widget-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BaseWidgetComponent implements OnInit, OnChanges {
+export class WidgetWrapperComponent implements OnChanges {
   @Input() widget: any;
 
   component: Observable<any>;
@@ -17,8 +17,6 @@ export class BaseWidgetComponent implements OnInit, OnChanges {
   constructor(
     private injector: Injector
   ) {}
-
-  ngOnInit(): void {}
 
   ngOnChanges(change: SimpleChanges) {
     if (change.widget.currentValue) {

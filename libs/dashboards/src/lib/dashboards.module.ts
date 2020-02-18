@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BaseWidgetComponent } from './base-widget/base-widget.component';
+import { WidgetWrapperComponent } from './widget-wrapper/widget-wrapper.component';
 import { WidgetGalleryModule } from '@ng-config-driven/widget-gallery';
 import { UiSharedModule } from '@ng-config-driven/ui-shared';
 import { ListComponent } from './list/list.component';
@@ -17,6 +17,6 @@ import { ListComponent } from './list/list.component';
       {path: ':uri', pathMatch: 'full', component: DashboardComponent}
     ])
   ],
-  declarations: [DashboardComponent, BaseWidgetComponent, ListComponent]
+  declarations: [DashboardComponent, WidgetWrapperComponent, ListComponent]
 })
 export class DashboardsModule {}

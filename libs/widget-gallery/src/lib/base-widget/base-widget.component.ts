@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'ng-config-driven-base-widget',
   template: ''
 })
 export class BaseWidgetComponent {
