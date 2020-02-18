@@ -14,13 +14,13 @@ body {
 }
 
 .dark-theme {
-    --app-background: #0c0c0c;
-    --card-component-background: #333;
-    --default-border-radius: 0.3125rem;
-    --border-color: #000000;
-    --app-text-color: #fff;
-    --card-component-box-shadow: 1rem 1rem 4rem #070707, -1rem -1rem 4rem #111111;
-    --preview-background: #fff;
+    --app-background: #0c0c0c !important;
+    --card-component-background: #333 !important;
+    --default-border-radius: 0.3125rem !important;
+    --border-color: #000000 !important;
+    --app-text-color: #fff !important;
+    --card-component-box-shadow: 1rem 1rem 4rem #070707, -1rem -1rem 4rem #111111 !important;
+    --preview-background: #fff !important;
 }
 
 // .viking-theme {

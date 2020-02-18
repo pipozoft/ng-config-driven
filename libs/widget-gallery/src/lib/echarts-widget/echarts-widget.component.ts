@@ -5,7 +5,6 @@ import { ECharts, EChartsOptionConfig } from 'echarts';
 import './maps/world.js';
 import './maps/germany.js';
 
-import * as _ from 'lodash';
 import { BaseWidgetComponent } from '../base-widget/base-widget.component.js';
 
 @RegisterWidget('EchartsWidget')
