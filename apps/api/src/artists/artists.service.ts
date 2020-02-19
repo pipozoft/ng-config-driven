@@ -20,7 +20,7 @@ export class ArtistsService {
     return await this.artistModel.findOne({_id: id});
   }
 
-  async aggregate(query: any): Promise<any[]>{
+  async aggregate(query: any[]): Promise<any[]>{
     return await this.artistModel.aggregate(query);
   }
 

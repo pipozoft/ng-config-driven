@@ -7,7 +7,7 @@ export interface Dashboard {
 }
 
 export interface Filter {
-  query: any;
+  query: string;
   sort: any;
   limit: number;
 }
