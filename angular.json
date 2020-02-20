@@ -90,7 +90,8 @@
           "options": {
             "jestConfig": "apps/front/jest.config.js",
             "tsConfig": "apps/front/tsconfig.spec.json",
-            "setupFile": "apps/front/src/test-setup.ts"
+            "setupFile": "apps/front/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       }
@@ -171,7 +172,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/api/jest.config.js",
-            "tsConfig": "apps/api/tsconfig.spec.json"
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -196,7 +198,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
-            "tsConfig": "libs/api-interfaces/tsconfig.spec.json"
+            "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
@@ -222,7 +225,8 @@
           "options": {
             "jestConfig": "libs/dashboards/jest.config.js",
             "tsConfig": "libs/dashboards/tsconfig.spec.json",
-            "setupFile": "libs/dashboards/src/test-setup.ts"
+            "setupFile": "libs/dashboards/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -253,7 +257,8 @@
           "options": {
             "jestConfig": "libs/widget-gallery/jest.config.js",
             "tsConfig": "libs/widget-gallery/tsconfig.spec.json",
-            "setupFile": "libs/widget-gallery/src/test-setup.ts"
+            "setupFile": "libs/widget-gallery/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
@@ -284,7 +289,8 @@
           "options": {
             "jestConfig": "libs/ui-shared/jest.config.js",
             "tsConfig": "libs/ui-shared/tsconfig.spec.json",
-            "setupFile": "libs/ui-shared/src/test-setup.ts"
+            "setupFile": "libs/ui-shared/src/test-setup.ts",
+            "passWithNoTests": true
           }
         }
       },
