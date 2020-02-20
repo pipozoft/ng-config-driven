@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Injector, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { WidgetRegistry, Widget } from '@ng-config-driven/ui-shared';
+import { WidgetRegistry, WidgetConfiguration } from '@ng-config-driven/ui-shared';
+import { Widget } from '@ng-config-driven/api-interfaces';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -9,7 +10,7 @@ import { Observable, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WidgetWrapperComponent implements OnChanges {
-  @Input() widget: any;
+  @Input() widget: Widget;
 
   component: Observable<any>;
   componentInjector: Injector;
@@ -20,15 +21,14 @@ export class WidgetWrapperComponent implements OnChanges {
 
   ngOnChanges(change: SimpleChanges) {
     if (change.widget.currentValue) {
-      const widget = new Widget(change.widget.currentValue.config);
+      const widget = new WidgetConfiguration(change.widget.currentValue.config);
 
       this.componentInjector = Injector.create({
-        providers: [{ provide: Widget, deps: [], useValue: widget }],
+        providers: [{ provide: WidgetConfiguration, deps: [], useValue: widget }],
         parent: this.injector,
         name: ''
       });
       this.component = of(WidgetRegistry.get(change.widget.currentValue.type));
     }
   }
-
 }

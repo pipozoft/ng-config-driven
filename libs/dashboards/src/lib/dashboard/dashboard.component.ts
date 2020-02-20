@@ -1,9 +1,6 @@
 import {
   Component,
-  OnInit,
-  AfterContentInit,
   ChangeDetectionStrategy,
-  Renderer2,
   OnDestroy
 } from '@angular/core';
 import { UIHelperService } from '@ng-config-driven/ui-shared';
@@ -20,14 +17,12 @@ import { SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent implements OnInit, AfterContentInit, OnDestroy {
+export class DashboardComponent implements OnDestroy {
   config$: Observable<Dashboard>;
   themeStyles: SafeHtml;
 
   constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient,
-    private uiHelper: UIHelperService
+    private route: ActivatedRoute, private http: HttpClient, private uiHelper: UIHelperService
   ) {
     this.route.params
     .subscribe(params => {
@@ -40,12 +35,7 @@ export class DashboardComponent implements OnInit, AfterContentInit, OnDestroy {
         })
       );
     });
-
   }
-
-  ngOnInit(): void {}
-
-  ngAfterContentInit(): void {}
 
   ngOnDestroy(): void {
     this.uiHelper.clearTheme();

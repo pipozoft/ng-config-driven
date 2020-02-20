@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class Widget {
+export class WidgetConfiguration {
     transformationFunction: string;
     queryUri: string;
     chartOptions: any;

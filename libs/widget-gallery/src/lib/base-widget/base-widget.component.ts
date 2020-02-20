@@ -1,5 +1,5 @@
 import { Component, Inject, ChangeDetectorRef } from '@angular/core';
-import { Widget, WidgetConfig, DataQueriesService } from '@ng-config-driven/ui-shared';
+import { DataQueriesService, WidgetConfiguration } from '@ng-config-driven/ui-shared';
 import { map } from 'rxjs/operators';
 
 import * as _ from 'lodash';
@@ -11,7 +11,7 @@ export class BaseWidgetComponent {
   data: any[];
 
   constructor(
-    @Inject(Widget) public config: WidgetConfig,
+    @Inject(WidgetConfiguration) public config: WidgetConfiguration,
     protected dataQueriesService: DataQueriesService,
     protected cd: ChangeDetectorRef
   ) {}
