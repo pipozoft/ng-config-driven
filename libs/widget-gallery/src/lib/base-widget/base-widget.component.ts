@@ -22,7 +22,7 @@ export class BaseWidgetComponent {
       map((reponse: any[]) => {
         // Save raw data
         this.data = Object.assign([], reponse);
-        // Return transformed data
+        // Return data transformed by the widget's transformation function
         return this.dataQueriesService.createTransformationFunction(
           this.config.transformationFunction
         )(reponse, {_});

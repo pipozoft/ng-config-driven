@@ -15,9 +15,7 @@ export class WidgetWrapperComponent implements OnChanges {
   component: Observable<any>;
   componentInjector: Injector;
 
-  constructor(
-    private injector: Injector
-  ) {}
+  constructor(private injector: Injector) {}
 
   ngOnChanges(change: SimpleChanges) {
     if (change.widget.currentValue) {
