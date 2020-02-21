@@ -7,6 +7,11 @@
         [widget]="widget">
     </ng-config-driven-widget-wrapper>
   </div>
+
+  <!-- EMPTY LIST -->
+  <div class="empty-state" *ngIf="!config.widgets.length">
+      <i>No widgets yet </i> <strong>]:(</strong>
+  </div>
 </div>
 
 <!-- THEME STYLES -->

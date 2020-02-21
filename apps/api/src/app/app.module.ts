@@ -7,7 +7,7 @@ import { DataQueriesModule } from '../data-queries/data-queries.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/nest'),
+    MongooseModule.forRoot('mongodb://localhost/ngVikings'),
     DashboardsModule,
     ArtistsModule,
     DataQueriesModule

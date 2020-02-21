@@ -1,7 +1,15 @@
-<h1>Demos</h1>
+<h1>Dashboards</h1>
 
-<a class="card"
-   *ngFor="let dashboard of dashboards$ | async"
-   [routerLink]="['/dashboards/', dashboard.uri]">
-   {{dashboard.title}}
-</a>
+<div *ngIf="dashboards$ | async as dashboards">
+
+   <a class="card"
+      *ngFor="let dashboard of dashboards"
+      [routerLink]="['/dashboards/', dashboard.uri]">
+      {{dashboard.title}}
+   </a>
+
+   <!-- EMPTY LIST -->
+   <div *ngIf="!dashboards.length">
+      <i>No dashboards yet </i> <strong>]:(</strong>
+   </div>
+</div>

@@ -23,4 +23,12 @@ export class DashboardsService {
   async findByURI(uri): Promise<Dashboard>{
     return await this.dashboardModel.findOne({uri});
   }
+
+  async update(id, createDashboardDto: CreateDashboardDto): Promise<Dashboard> {
+    return await this.dashboardModel.findByIdAndUpdate(id, createDashboardDto, { new: true });
+  }
+
+  async delete(id): Promise<any> {
+    return await this.dashboardModel.findByIdAndRemove(id);
+  }
 }
