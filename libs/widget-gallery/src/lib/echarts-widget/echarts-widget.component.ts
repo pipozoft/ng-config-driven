@@ -35,17 +35,20 @@ export class EchartsWidgetComponent extends BaseWidgetComponent implements After
       this.updateOptions = Object.assign({}, data);
     });
 
-    this.uiHelper.theme$
-    .subscribe(theme => {
-      this.theme = theme;
-      this.cd.detectChanges();
-    });
-
-    this.widgetCommunicationService.events$
-    .subscribe(action => {
-      this.action(action);
-      this.cd.detectChanges();
-    });
+    this.subs.push(
+      // Theme
+      this.uiHelper.theme$
+      .subscribe(theme => {
+        this.theme = theme;
+        this.cd.detectChanges();
+      }),
+      // Widget communication
+      this.widgetCommunicationService.events$
+      .subscribe(action => {
+        this.action(action);
+        this.cd.detectChanges();
+      })
+    );
   }
 
   onChartEvent(event): void {

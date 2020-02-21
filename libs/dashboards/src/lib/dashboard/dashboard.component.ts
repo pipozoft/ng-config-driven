@@ -7,7 +7,7 @@ import { UIHelperService } from '@ng-config-driven/ui-shared';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Dashboard } from '@ng-config-driven/api-interfaces';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { SafeHtml } from '@angular/platform-browser';
 
@@ -20,11 +20,12 @@ import { SafeHtml } from '@angular/platform-browser';
 export class DashboardComponent implements OnDestroy {
   config$: Observable<Dashboard>;
   themeStyles: SafeHtml;
+  sub: Subscription;
 
   constructor(
     private route: ActivatedRoute, private http: HttpClient, private uiHelper: UIHelperService
   ) {
-    this.route.params
+    this.sub = this.route.params
     .subscribe(params => {
       const uri = params['uri'];
       this.config$ = this.http.post<Dashboard>(`/api/dashboards/uri`, { uri })
@@ -39,5 +40,8 @@ export class DashboardComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.uiHelper.clearTheme();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
