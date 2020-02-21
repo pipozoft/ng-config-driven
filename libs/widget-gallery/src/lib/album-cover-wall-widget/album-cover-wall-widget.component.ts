@@ -1,5 +1,5 @@
 import { Component, Inject, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { RegisterWidget, WidgetConfiguration, DataQueriesService } from '@ng-config-driven/ui-shared';
+import { RegisterWidget, WidgetConfiguration, DataQueriesService, WidgetCommunicationService } from '@ng-config-driven/ui-shared';
 import { BaseWidgetComponent } from '../base-widget/base-widget.component';
 
 @RegisterWidget('AlbumCoverWallWidget')
@@ -13,12 +13,27 @@ export class AlbumCoverWallWidgetComponent extends BaseWidgetComponent implement
   constructor(
     @Inject(WidgetConfiguration) public config: WidgetConfiguration,
     protected dataQueriesService: DataQueriesService,
-    protected cd: ChangeDetectorRef
+    protected cd: ChangeDetectorRef,
+    private widgetCommunicationService: WidgetCommunicationService
   ) {
     super(config, dataQueriesService, cd);
   }
 
   ngAfterViewInit(): void {
     this.getData(this.config.queryUri, () => {});
+  }
+
+  chartAction(type: string, artist) {
+    // by name
+    this.widgetCommunicationService.send({
+      type,
+      name: artist.name
+    });
+
+    // by country
+    this.widgetCommunicationService.send({
+      type,
+      name: artist.country
+    });
   }
 }

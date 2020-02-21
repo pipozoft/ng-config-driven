@@ -2,5 +2,7 @@
     <img *ngFor="let item of data;"
     [src]="item.imgageUrl"
     alt="{{item.name}}"
-    loading="eager">
+    loading="eager"
+    (mouseenter)="chartAction('highlight', item)"
+    (mouseleave)="chartAction('downplay', item)">
 </div>

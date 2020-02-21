@@ -1,11 +1,11 @@
 import { Component, Inject, ChangeDetectionStrategy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { RegisterWidget, DataQueriesService, UIHelperService, WidgetConfiguration } from '@ng-config-driven/ui-shared';
-import { ECharts, EChartsOptionConfig } from 'echarts';
+import { RegisterWidget, DataQueriesService, UIHelperService, WidgetConfiguration, WidgetCommunicationService } from '@ng-config-driven/ui-shared';
+import { ECharts } from 'echarts';
 
 import './maps/world.js';
 import './maps/germany.js';
+import { BaseWidgetComponent } from '../base-widget/base-widget.component';
 
-import { BaseWidgetComponent } from '../base-widget/base-widget.component.js';
 
 @RegisterWidget('EchartsWidget')
 @Component({
@@ -15,7 +15,7 @@ import { BaseWidgetComponent } from '../base-widget/base-widget.component.js';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EchartsWidgetComponent extends BaseWidgetComponent implements AfterViewInit {
-  updateOptions: EChartsOptionConfig;
+  updateOptions: any;
   theme: string;
   eChartsInstance: ECharts;
 
@@ -24,6 +24,7 @@ export class EchartsWidgetComponent extends BaseWidgetComponent implements After
     protected dataQueriesService: DataQueriesService,
     protected cd: ChangeDetectorRef,
     private uiHelper: UIHelperService,
+    private widgetCommunicationService: WidgetCommunicationService
   ) {
     super(config, dataQueriesService, cd);
   }
@@ -39,6 +40,12 @@ export class EchartsWidgetComponent extends BaseWidgetComponent implements After
       this.theme = theme;
       this.cd.detectChanges();
     });
+
+    this.widgetCommunicationService.events$
+    .subscribe(action => {
+      this.action(action);
+      this.cd.detectChanges();
+    });
   }
 
   onChartEvent(event): void {
@@ -51,5 +58,12 @@ export class EchartsWidgetComponent extends BaseWidgetComponent implements After
 
   setTheme(theme: string) {
     this.theme = theme;
+  }
+
+  action({type, name}) {
+    this.eChartsInstance.dispatchAction({
+        type: type,
+        name
+    });
   }
 }

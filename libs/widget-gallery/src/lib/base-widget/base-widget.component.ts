@@ -2,8 +2,6 @@ import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { DataQueriesService, WidgetConfiguration } from '@ng-config-driven/ui-shared';
 import { map } from 'rxjs/operators';
 
-import * as _ from 'lodash';
-
 @Component({
   template: ''
 })
@@ -25,7 +23,7 @@ export class BaseWidgetComponent {
         // Return data transformed by the widget's transformation function
         return this.dataQueriesService.createTransformationFunction(
           this.config.transformationFunction
-        )(reponse, {_});
+        )(reponse);
       })
     )
     .subscribe(data => {

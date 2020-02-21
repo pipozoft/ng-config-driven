@@ -16,7 +16,7 @@ export class DataQueriesService {
 
     createTransformationFunction(transformationFunction: string) {
         return new Function(
-            'response', 'util',
+            'response',
             transformationFunction ?
             transformationFunction :
             'return response;'
