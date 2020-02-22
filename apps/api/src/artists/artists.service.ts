@@ -24,7 +24,7 @@ export class ArtistsService {
     return await this.artistModel.aggregate(query);
   }
 
-  async distintNames(): Promise<any[]>{
+  async distintNames(): Promise<string[]>{
     return await this.artistModel.distinct('name');
   }
 }

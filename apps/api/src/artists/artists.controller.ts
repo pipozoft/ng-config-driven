@@ -30,7 +30,7 @@ export class ArtistsController {
   }
 
   @Post('/names')
-  async names(): Promise<Artist[]> {
+  async names(): Promise<string[]> {
     return this.artistsService.distintNames();
   }
 }

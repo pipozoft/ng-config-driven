@@ -1,7 +1,7 @@
 export interface WidgetConfig {
   queryUri: string;
   transformationFunction: string;
-  chartOptions?: any;
+  chartOptions: any;
   value: any;
 }
 

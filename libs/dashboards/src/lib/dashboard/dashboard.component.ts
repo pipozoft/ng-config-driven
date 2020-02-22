@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Dashboard } from '@ng-config-driven/api-interfaces';
 import { Observable, Subscription } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -33,7 +33,10 @@ export class DashboardComponent implements OnDestroy {
         tap(config => {
           this.themeStyles = this.uiHelper.getThemeStyle(config.theme || {});
           this.uiHelper.applyTheme()
-        })
+        }),
+        catchError(err => {
+          throw err;
+        }),
       );
     });
   }

@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "a0d32716-51b8-4691-8404-081a23410813",
+		"name": "ngVikings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0 - GET /api/artists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/api/artists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"artists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1 - GET /api/dashboards",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/api/dashboards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dashboards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - GET /api/dataqueries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/api/dataqueries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dataqueries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - POST /api/dataqueries (metal.artists.viking.popular)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uri\" : \"metal.artists.viking.popular\",\n    \"filter\" : {\n        \"sort\" : {\n            \"popularity\" : -1\n        }\n    },\n    \"type\" : \"query\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/dataqueries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dataqueries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 - POST /api/dataqueries (metal.artists.viking.top.popular)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uri\" : \"metal.artists.viking.top.popular\",\n    \"filter\" : {\n        \"sort\" : {\n            \"popularity\" : -1\n        },\n        \"limit\": 10\n    },\n    \"type\" : \"query\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/dataqueries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dataqueries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - POST /api/dataqueries (metal.artists.viking.top.followers)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uri\" : \"metal.artists.viking.top.followers\",\n    \"filter\" : {\n        \"sort\" : {\n            \"followers\" : -1\n        },\n        \"limit\": 10\n    },\n    \"type\" : \"query\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/dataqueries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dataqueries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 - POST /api/dataqueries (metal.artists.viking.country.aggregate)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uri\" : \"metal.artists.viking.country.aggregate\",\n    \"filter\" : {\n        \"query\" : \"[\\r\\n    {\\r\\n        \\\"$group\\\": {\\r\\n            \\\"_id\\\": \\\"$country\\\",\\r\\n            \\\"artists\\\": {\\r\\n                \\\"$addToSet\\\": \\\"$name\\\"\\r\\n            },\\r\\n            \\\"count\\\": {\\r\\n                \\\"$sum\\\": 1\\r\\n            }\\r\\n        }\\r\\n    }\\r\\n]\"\n    },\n    \"type\" : \"aggregate\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/dataqueries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dataqueries"
+					]
+				},
+				"description": "[\n    {\n        \"$group\": {\n            \"_id\": \"$country\",\n            \"artists\": {\n                \"$addToSet\": \"$name\"\n            },\n            \"count\": {\n                \"$sum\": 1\n            }\n        }\n    }\n]"
+			},
+			"response": []
+		},
+		{
+			"name": "7 - POST /api/dataqueries/exec",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uri\": \"metal.artists.viking.country.aggregate\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/dataqueries/exec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dataqueries",
+						"exec"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8 - POST /api/dashboards (init viking dashboard)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uri\" : \"viking-metal-dashboard\",\n    \"title\" : \"Pursuit of the ngVikings\",\n    \"theme\" : {\n        \"default-font-family\" : \"'Myrkvior'\",\n        \"app-background\" : \"#e2e2d8\",\n        \"app-text-color\" : \"#1d2323\",\n        \"card-component-background\" : \"rgba(255, 255, 255, 0.5)\",\n        \"border-color\" : \"#ccccc5\",\n        \"card-component-box-shadow\" : \"none\",\n        \"alt-color\" : \"#5d9690\",\n        \"default-letter-spacing\" : \"3px\",\n        \"default-font-size\" : \"1.25rem\"\n    },\n    \"widgets\" : [ \n        {\n            \"title\" : \"Number of bands by country\",\n            \"type\" : \"EchartsWidget\",\n            \"size\" : 12,\n            \"config\" : {\n                \"queryUri\" : \"metal.artists.viking.country.aggregate\",\n                \"transformationFunction\" : \"return {series: [{name: 'Artists from', id: 'map', type: 'map', mapType: 'world', geoIndex: 0, data: response.map(c => {return {name: c._id, value: c.count}})}]};\",\n                \"chartOptions\" : {\n                    \"tooltip\" : {\n                        \"trigger\" : \"item\",\n                        \"backgroundColor\" : \"#000\"\n                    },\n                    \"visualMap\" : {\n                        \"show\" : false,\n                        \"min\" : 1,\n                        \"max\" : 10,\n                        \"inRange\" : {\n                            \"color\" : [ \n                                \"#f1c5a2\", \n                                \"#ba714a\"\n                            ]\n                        }\n                    },\n                    \"geo\" : {\n                        \"map\" : \"world\",\n                        \"zoom\" : 1.2,\n                        \"roam\" : true,\n                        \"scaleLimit\" : {\n                            \"min\" : 1,\n                            \"max\" : 8\n                        },\n                        \"label\" : {\n                            \"emphasis\" : {\n                                \"show\" : false\n                            }\n                        },\n                        \"itemStyle\" : {\n                            \"normal\" : {\n                                \"areaColor\" : \"rgba(0, 0, 0, 0.2)\",\n                                \"borderColor\" : \"rgba(255, 255, 255, 0.2)\"\n                            },\n                            \"emphasis\" : {\n                                \"areaColor\" : \"#588C83\"\n                            }\n                        }\n                    }\n                },\n                \"value\" : {}\n            }\n        }, \n        {\n            \"title\" : \"Top 10 by popularity\",\n            \"type\" : \"EchartsWidget\",\n            \"size\" : 6,\n            \"config\" : {\n                \"queryUri\" : \"metal.artists.top.viking.popular\",\n                \"transformationFunction\" : \"return {yAxis:{data:response.reverse().map(a=>a.name)}, series:[{name: 'Popularity',type: 'bar', emphasis:{ itemStyle:{ color: '#588C83'}}, data: response.map(a=>a.popularity)}]}\",\n                \"chartOptions\" : {\n                    \"tooltip\" : {\n                        \"trigger\" : \"axis\",\n                        \"axisPointer\" : {\n                            \"type\" : \"shadow\"\n                        },\n                        \"backgroundColor\" : \"#000\"\n                    },\n                    \"grid\" : {\n                        \"top\" : \"3%\",\n                        \"left\" : \"3%\",\n                        \"right\" : \"4%\",\n                        \"bottom\" : \"3%\",\n                        \"containLabel\" : true\n                    },\n                    \"visualMap\" : {\n                        \"show\" : false,\n                        \"min\" : 40,\n                        \"max\" : 70,\n                        \"dimension\" : 0,\n                        \"inRange\" : {\n                            \"color\" : [ \n                                \"#f1c5a2\", \n                                \"#ba714a\"\n                            ]\n                        }\n                    },\n                    \"xAxis\" : {\n                        \"type\" : \"value\",\n                        \"boundaryGap\" : [ \n                            0, \n                            0.01\n                        ],\n                        \"position\" : \"top\"\n                    },\n                    \"yAxis\" : {\n                        \"type\" : \"category\",\n                        \"data\" : []\n                    },\n                    \"series\" : []\n                },\n                \"value\" : {}\n            }\n        }, \n        {\n            \"title\" : \"Top 10 by followers\",\n            \"type\" : \"EchartsWidget\",\n            \"size\" : 6,\n            \"config\" : {\n                \"queryUri\" : \"metal.artists.top.viking.followers\",\n                \"transformationFunction\" : \"return {yAxis:{data:response.reverse().map(a=>a.name)}, series:[{name: 'Followers',type: 'bar', emphasis:{ itemStyle:{ color: '#588C83'}}, data: response.map(a=>a.followers)}]}\",\n                \"chartOptions\" : {\n                    \"tooltip\" : {\n                        \"trigger\" : \"axis\",\n                        \"axisPointer\" : {\n                            \"type\" : \"shadow\"\n                        },\n                        \"backgroundColor\" : \"#000\"\n                    },\n                    \"grid\" : {\n                        \"top\" : \"3%\",\n                        \"left\" : \"3%\",\n                        \"right\" : \"4%\",\n                        \"bottom\" : \"3%\",\n                        \"containLabel\" : true\n                    },\n                    \"visualMap\" : {\n                        \"show\" : false,\n                        \"min\" : 0,\n                        \"max\" : 700000,\n                        \"dimension\" : 0,\n                        \"inRange\" : {\n                            \"color\" : [ \n                                \"#f1c5a2\", \n                                \"#ba714a\"\n                            ]\n                        }\n                    },\n                    \"xAxis\" : {\n                        \"type\" : \"value\",\n                        \"boundaryGap\" : [ \n                            0, \n                            0.01\n                        ],\n                        \"position\" : \"top\"\n                    },\n                    \"yAxis\" : {\n                        \"type\" : \"category\",\n                        \"data\" : []\n                    },\n                    \"series\" : []\n                },\n                \"value\" : {}\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/dashboards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dashboards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9 - POST /api/dashboards (full viking dashboard)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uri\" : \"viking-metal-dashboard\",\n    \"title\" : \"Pursuit of the ngVikings\",\n    \"theme\" : {\n        \"default-font-family\" : \"'Myrkvior'\",\n        \"app-background\" : \"#e2e2d8\",\n        \"app-text-color\" : \"#1d2323\",\n        \"card-component-background\" : \"rgba(255, 255, 255, 0.5)\",\n        \"border-color\" : \"#ccccc5\",\n        \"card-component-box-shadow\" : \"none\",\n        \"alt-color\" : \"#5d9690\",\n        \"default-letter-spacing\" : \"3px\",\n        \"default-font-size\" : \"1.25rem\"\n    },\n    \"widgets\" : [ \n        {\n            \"title\" : \"Number of bands by country\",\n            \"type\" : \"EchartsWidget\",\n            \"size\" : 12,\n            \"config\" : {\n                \"queryUri\" : \"metal.artists.viking.country.aggregate\",\n                \"transformationFunction\" : \"return {series: [{name: 'Artists from', id: 'map', type: 'map', mapType: 'world', geoIndex: 0, data: response.map(c => {return {name: c._id, value: c.count}})}]};\",\n                \"chartOptions\" : {\n                    \"tooltip\" : {\n                        \"trigger\" : \"item\",\n                        \"backgroundColor\" : \"#000\"\n                    },\n                    \"visualMap\" : {\n                        \"show\" : false,\n                        \"min\" : 1,\n                        \"max\" : 10,\n                        \"inRange\" : {\n                            \"color\" : [ \n                                \"#f1c5a2\", \n                                \"#ba714a\"\n                            ]\n                        }\n                    },\n                    \"geo\" : {\n                        \"map\" : \"world\",\n                        \"zoom\" : 1.2,\n                        \"roam\" : true,\n                        \"scaleLimit\" : {\n                            \"min\" : 1,\n                            \"max\" : 8\n                        },\n                        \"label\" : {\n                            \"emphasis\" : {\n                                \"show\" : false\n                            }\n                        },\n                        \"itemStyle\" : {\n                            \"normal\" : {\n                                \"areaColor\" : \"rgba(0, 0, 0, 0.2)\",\n                                \"borderColor\" : \"rgba(255, 255, 255, 0.2)\"\n                            },\n                            \"emphasis\" : {\n                                \"areaColor\" : \"#588C83\"\n                            }\n                        }\n                    }\n                },\n                \"value\" : {}\n            }\n        }, \n        {\n            \"title\" : \"Top 10 by popularity\",\n            \"type\" : \"EchartsWidget\",\n            \"size\" : 6,\n            \"config\" : {\n                \"queryUri\" : \"metal.artists.viking.top.popular\",\n                \"transformationFunction\" : \"return {yAxis:{data:response.reverse().map(a=>a.name)}, series:[{name: 'Popularity',type: 'bar', emphasis:{ itemStyle:{ color: '#588C83'}}, data: response.map(a=>a.popularity)}]}\",\n                \"chartOptions\" : {\n                    \"tooltip\" : {\n                        \"trigger\" : \"axis\",\n                        \"axisPointer\" : {\n                            \"type\" : \"shadow\"\n                        },\n                        \"backgroundColor\" : \"#000\"\n                    },\n                    \"grid\" : {\n                        \"top\" : \"3%\",\n                        \"left\" : \"3%\",\n                        \"right\" : \"4%\",\n                        \"bottom\" : \"3%\",\n                        \"containLabel\" : true\n                    },\n                    \"visualMap\" : {\n                        \"show\" : false,\n                        \"min\" : 40,\n                        \"max\" : 70,\n                        \"dimension\" : 0,\n                        \"inRange\" : {\n                            \"color\" : [ \n                                \"#f1c5a2\", \n                                \"#ba714a\"\n                            ]\n                        }\n                    },\n                    \"xAxis\" : {\n                        \"type\" : \"value\",\n                        \"boundaryGap\" : [ \n                            0, \n                            0.01\n                        ],\n                        \"position\" : \"top\"\n                    },\n                    \"yAxis\" : {\n                        \"type\" : \"category\",\n                        \"data\" : []\n                    },\n                    \"series\" : []\n                },\n                \"value\" : {}\n            }\n        }, \n        {\n            \"title\" : \"Top 10 by followers\",\n            \"type\" : \"EchartsWidget\",\n            \"size\" : 6,\n            \"config\" : {\n                \"queryUri\" : \"metal.artists.viking.top.followers\",\n                \"transformationFunction\" : \"return {yAxis:{data:response.reverse().map(a=>a.name)}, series:[{name: 'Followers',type: 'bar', emphasis:{ itemStyle:{ color: '#588C83'}}, data: response.map(a=>a.followers)}]}\",\n                \"chartOptions\" : {\n                    \"tooltip\" : {\n                        \"trigger\" : \"axis\",\n                        \"axisPointer\" : {\n                            \"type\" : \"shadow\"\n                        },\n                        \"backgroundColor\" : \"#000\"\n                    },\n                    \"grid\" : {\n                        \"top\" : \"3%\",\n                        \"left\" : \"3%\",\n                        \"right\" : \"4%\",\n                        \"bottom\" : \"3%\",\n                        \"containLabel\" : true\n                    },\n                    \"visualMap\" : {\n                        \"show\" : false,\n                        \"min\" : 0,\n                        \"max\" : 700000,\n                        \"dimension\" : 0,\n                        \"inRange\" : {\n                            \"color\" : [ \n                                \"#f1c5a2\", \n                                \"#ba714a\"\n                            ]\n                        }\n                    },\n                    \"xAxis\" : {\n                        \"type\" : \"value\",\n                        \"boundaryGap\" : [ \n                            0, \n                            0.01\n                        ],\n                        \"position\" : \"top\"\n                    },\n                    \"yAxis\" : {\n                        \"type\" : \"category\",\n                        \"data\" : []\n                    },\n                    \"series\" : []\n                },\n                \"value\" : {}\n            }\n        }, \n        {\n            \"title\" : \"Album covers\",\n            \"type\" : \"AlbumCoverWallWidget\",\n            \"size\" : 12,\n            \"config\" : {\n                \"queryUri\" : \"metal.artists.viking.popular\",\n                \"transformationFunction\" : null,\n                \"chartOptions\" : {},\n                \"value\" : {}\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/dashboards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"dashboards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 - GET /api/artists/aggregate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"$group\": {\n            \"_id\": \"$country\",\n            \"artists\": {\n                \"$addToSet\": \"$name\"\n            },\n            \"count\": {\n                \"$sum\": 1\n            }\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/api/artists/aggregate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"artists",
+						"aggregate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11 - GET /api/artists/names",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3333/api/artists/names",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"artists",
+						"names"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

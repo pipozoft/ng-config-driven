@@ -1,5 +1,5 @@
-import { Component, Inject, ChangeDetectionStrategy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { RegisterWidget, DataQueriesService, UIHelperService, WidgetConfiguration, WidgetCommunicationService } from '@ng-config-driven/ui-shared';
+import { Component, Inject, ChangeDetectionStrategy, AfterViewInit, Injector } from '@angular/core';
+import { RegisterWidget, UIHelperService, WidgetConfiguration } from '@ng-config-driven/ui-shared';
 import { ECharts } from 'echarts';
 
 import './maps/world.js';
@@ -21,12 +21,10 @@ export class EchartsWidgetComponent extends BaseWidgetComponent implements After
 
   constructor(
     @Inject(WidgetConfiguration) public config: WidgetConfiguration,
-    protected dataQueriesService: DataQueriesService,
-    protected cd: ChangeDetectorRef,
+    private injector: Injector,
     private uiHelper: UIHelperService,
-    private widgetCommunicationService: WidgetCommunicationService
   ) {
-    super(config, dataQueriesService, cd);
+    super(config, injector);
   }
 
   ngAfterViewInit(): void {

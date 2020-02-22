@@ -1,5 +1,5 @@
-import { Component, Inject, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { RegisterWidget, WidgetConfiguration, DataQueriesService, WidgetCommunicationService } from '@ng-config-driven/ui-shared';
+import { Component, Inject, AfterViewInit, Injector } from '@angular/core';
+import { RegisterWidget, WidgetConfiguration } from '@ng-config-driven/ui-shared';
 import { BaseWidgetComponent } from '../base-widget/base-widget.component';
 
 @RegisterWidget('AlbumCoverWallWidget')
@@ -12,11 +12,9 @@ export class AlbumCoverWallWidgetComponent extends BaseWidgetComponent implement
 
   constructor(
     @Inject(WidgetConfiguration) public config: WidgetConfiguration,
-    protected dataQueriesService: DataQueriesService,
-    protected cd: ChangeDetectorRef,
-    private widgetCommunicationService: WidgetCommunicationService
+    private injector: Injector
   ) {
-    super(config, dataQueriesService, cd);
+    super(config, injector);
   }
 
   ngAfterViewInit(): void {
