@@ -38,6 +38,7 @@ export class BaseWidgetComponent implements OnDestroy {
         })
       )
       .subscribe(data => {
+        // Execute function
         func(data);
         this.cd.detectChanges();
       },

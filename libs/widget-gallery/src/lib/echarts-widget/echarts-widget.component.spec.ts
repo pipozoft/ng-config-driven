@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EchartsWidgetComponent } from './echarts-widget.component';
+import { CommonModule } from '@angular/common';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { UiSharedModule, WidgetConfiguration } from '@ng-config-driven/ui-shared';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('EchartsWidgetComponent', () => {
   let component: EchartsWidgetComponent;
@@ -8,7 +12,21 @@ describe('EchartsWidgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EchartsWidgetComponent ]
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        NgxEchartsModule,
+        UiSharedModule.forRoot()
+      ],
+      declarations: [ EchartsWidgetComponent ],
+      providers: [
+        {
+          provide: WidgetConfiguration,
+          useValue: {
+            config: {},
+          }
+        }
+      ]
     })
     .compileComponents();
   }));

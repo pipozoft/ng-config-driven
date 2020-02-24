@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Injector, Input, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Injector, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { WidgetRegistry, WidgetConfiguration } from '@ng-config-driven/ui-shared';
 import { Widget } from '@ng-config-driven/api-interfaces';
 import { Observable, of } from 'rxjs';
@@ -9,7 +9,7 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./widget-wrapper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WidgetWrapperComponent implements OnInit {
+export class WidgetWrapperComponent implements OnChanges {
   @Input() widget: Widget;
 
   component: Observable<any>;
@@ -17,18 +17,20 @@ export class WidgetWrapperComponent implements OnInit {
 
   constructor(private injector: Injector) {}
 
-  ngOnInit(): void {
-    this.loadComponent();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.widget.currentValue) {
+      this.loadComponent(changes.widget.currentValue);
+    }
   }
 
-  loadComponent() {
-    const widget = new WidgetConfiguration(this.widget.config);
+  loadComponent(widget: Widget): void {
+    const config = new WidgetConfiguration(widget.config);
 
     this.componentInjector = Injector.create({
-      providers: [{ provide: WidgetConfiguration, deps: [], useValue: widget }],
+      providers: [{ provide: WidgetConfiguration, deps: [], useValue: config }],
       parent: this.injector,
       name: ''
     });
-    this.component = of(WidgetRegistry.get(this.widget.type));
+    this.component = of(WidgetRegistry.get(widget.type));
   }
 }
