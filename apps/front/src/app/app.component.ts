@@ -7,7 +7,13 @@ import { UIHelperService } from '@ng-config-driven/ui-shared';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public uiHelper: UIHelperService) {}
+  constructor(public uiHelper: UIHelperService) {
+
+    // Check if browser preference is dark
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      this.uiHelper.toggleDarkMode();
+    }
+  }
 
   toggleTheme(): void {
     this.uiHelper.toggleDarkMode();
