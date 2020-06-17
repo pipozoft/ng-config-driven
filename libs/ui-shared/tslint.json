@@ -3,5 +3,8 @@
   "rules": {
     "directive-selector": [true, "attribute", "ngConfigDriven", "camelCase"],
     "component-selector": [true, "element", "ng-config-driven", "kebab-case"]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
   }
 }

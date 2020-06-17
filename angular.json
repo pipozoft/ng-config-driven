@@ -82,7 +82,7 @@
               "apps/front/tsconfig.app.json",
               "apps/front/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/front/**"]
+            "exclude": ["**/node_modules/**", "!apps/front/**/*"]
           }
         },
         "test": {
@@ -118,7 +118,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": ["apps/front-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/front-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/front-e2e/**/*"]
           }
         }
       }
@@ -136,7 +136,8 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": ["apps/api/src/assets"],
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {
@@ -165,7 +166,7 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
           }
         },
         "test": {
@@ -191,7 +192,7 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**/*"]
           }
         },
         "test": {
@@ -217,7 +218,7 @@
               "libs/dashboards/tsconfig.lib.json",
               "libs/dashboards/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/dashboards/**"]
+            "exclude": ["**/node_modules/**", "!libs/dashboards/**/*"]
           }
         },
         "test": {
@@ -249,7 +250,7 @@
               "libs/widget-gallery/tsconfig.lib.json",
               "libs/widget-gallery/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/widget-gallery/**"]
+            "exclude": ["**/node_modules/**", "!libs/widget-gallery/**/*"]
           }
         },
         "test": {
@@ -281,7 +282,7 @@
               "libs/ui-shared/tsconfig.lib.json",
               "libs/ui-shared/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-shared/**"]
+            "exclude": ["**/node_modules/**", "!libs/ui-shared/**/*"]
           }
         },
         "test": {
