@@ -6,6 +6,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { UiSharedModule, WidgetConfiguration } from '@ng-config-driven/ui-shared';
 import { HttpClientModule } from '@angular/common/http';
 
+import * as echarts from 'echarts';
+
 describe('EchartsWidgetComponent', () => {
   let component: EchartsWidgetComponent;
   let fixture: ComponentFixture<EchartsWidgetComponent>;
@@ -15,7 +17,9 @@ describe('EchartsWidgetComponent', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        NgxEchartsModule,
+        NgxEchartsModule.forRoot({
+          echarts,
+        }),
         UiSharedModule.forRoot()
       ],
       declarations: [ EchartsWidgetComponent ],

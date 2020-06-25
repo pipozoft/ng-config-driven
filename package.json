@@ -44,11 +44,11 @@
     "@nestjs/platform-express": "^6.8.3",
     "@nrwl/angular": "9.4.5",
     "core-js": "^2.5.4",
-    "echarts": "^4.6.0",
+    "echarts": "^4.8.0",
     "flexboxgrid": "^6.3.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.8.11",
-    "ngx-echarts": "^4.2.2",
+    "ngx-echarts": "^5.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.4",
     "zone.js": "~0.10.2"
